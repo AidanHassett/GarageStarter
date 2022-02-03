@@ -27,7 +27,7 @@ public class Garage {
 	}
 
 	public void driveVehicle(int i, int dist, int load) {
-		if (garage.get(i).getClass().getCanonicalName() == "com.qa.vehicle.Truck") {
+		if (garage.get(i).getClass().getCanonicalName().equals("com.qa.vehicle.Truck")) {
 			Truck tr = (Truck) garage.get(i);
 			tr.drive(dist, load);
 		} else {
