@@ -7,9 +7,8 @@ public class Car extends Vehicle {
   private int doors;
   private double bootSize;
 
-  public Car(double displacement, String fuelType, int power, int torque, int weight, int gears, boolean automatic,
-	  int seats, int doors, double bootSize) {
-  	super(displacement, fuelType, power, torque, weight, gears, automatic);
+  public Car(int cost, double displacement, String fuelType, int power, int torque, int weight, int gears, boolean automatic, int seats, int doors, double bootSize) {
+  	super(cost, displacement, fuelType, power, torque, weight, gears, automatic);
   	this.seats = seats;
   	this.doors = doors;
   	this.bootSize = bootSize;
@@ -36,5 +35,17 @@ public class Car extends Vehicle {
     int cost = getServiceCost();
     lastService = odom;
     return cost;
+  }
+
+  public void drive(int dist) {
+    drive(dist, 0);
+  }
+
+  public void drive(int dist, int load) {
+    if (load > 1000) {
+      System.out.println("You can't carry that much!");
+    } else {
+      odom += dist;
+    }
   }
 }

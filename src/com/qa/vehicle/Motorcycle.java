@@ -7,9 +7,9 @@ public class Motorcycle extends Vehicle {
   private String riderPosture;
   private int stroke;
 
-  public Motorcycle(double displacement, String fuelType, int power, int torque, int weight, int gears,
+  public Motorcycle(int cost, double displacement, String fuelType, int power, int torque, int weight, int gears,
 	  boolean automatic, String riderPosture, int stroke) {
-  	super(displacement, fuelType, power, torque, weight, gears, automatic);
+  	super(cost, displacement, fuelType, power, torque, weight, gears, automatic);
   	this.riderPosture = riderPosture;
     if (stroke == 2) {
       this.stroke = 2;
@@ -35,5 +35,17 @@ public class Motorcycle extends Vehicle {
     int cost = getServiceCost();
     lastService = odom;
     return cost;
+  }
+
+  public void drive(int dist) {
+    drive(dist, 0);
+  }
+
+  public void drive(int dist, int load) {
+    if (load > 100) {
+      System.out.println("You can't carry that much!");
+    } else {
+      odom += dist;
+    }
   }
 }

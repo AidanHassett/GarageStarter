@@ -9,9 +9,8 @@ public class Truck extends Vehicle {
   private int odomWeighted;
   private int lastServiceWeighted;
 
-  public Truck(double displacement, String fuelType, int power, int torque, int weight, int gears, boolean automatic,
-	  int loadCapacity, double height, boolean sleeper) {
-  	super(displacement, fuelType, power, torque, weight, gears, automatic);
+  public Truck(int cost, double displacement, String fuelType, int power, int torque, int weight, int gears, boolean automatic, int loadCapacity, double height, boolean sleeper) {
+  	super(cost, displacement, fuelType, power, torque, weight, gears, automatic);
   	this.loadCapacity = loadCapacity;
   	this.height = height;
   	this.sleeper = sleeper;
@@ -29,7 +28,6 @@ public class Truck extends Vehicle {
     return sleeper;
   }
 
-  @Override
   public void drive(int dist) {
     drive(dist, 0);
   }

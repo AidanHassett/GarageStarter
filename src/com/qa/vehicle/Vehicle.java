@@ -1,6 +1,7 @@
 package com.qa.vehicle;
 
 public abstract class Vehicle {
+	protected int cost;
   protected int odom;
   protected int lastService;
   protected double displacement;
@@ -11,7 +12,7 @@ public abstract class Vehicle {
   protected int gears;
   protected boolean automatic;
 
-  public Vehicle(double displacement, String fuelType, int power, int torque, int weight, int gears, boolean automatic) {
+  public Vehicle(int cost, double displacement, String fuelType, int power, int torque, int weight, int gears, boolean automatic) {
     this.displacement = displacement;
     this.fuelType = fuelType;
     this.power = power;
@@ -23,6 +24,10 @@ public abstract class Vehicle {
     this.automatic = automatic;
     this.odom = 0;
     this.lastService = 0;
+  }
+  
+  public int getCost() {
+  	return cost;
   }
 
   public double getDisplacement() {
@@ -52,12 +57,16 @@ public abstract class Vehicle {
   public boolean isAutomatic() {
   	return automatic;
   }
+  
+  
 
   public abstract int getServiceCost();
 
   public abstract int service();
 
   public void drive(int distance) {
-    odom += distance;
+  	drive(distance, 0);
   }
+
+  public abstract void drive(int distance, int load);
 }
